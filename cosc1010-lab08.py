@@ -8,19 +8,10 @@
 # comments
 # here
 
-
 # Write a function that will properly check strings to see if they are an int or float, and convert them if so
 # If they can't be converted return false
 # Other wise return the converted int or float 
 # Floats should only have one decimal point in them 
-
-# Write a function to solve the quadratic formula
-# https://en.wikipedia.org/wiki/Quadratic_formula
-# Accept inputs for a, b, c
-# Remember that this returns two values
-# Create a loop like above to prompt the user for input for the three values
-# Create a second function that just does the square root operation 
-    # If the number you are trying to take the square root of is negative, return null
 
 def num_converter(num):
     isneg = False
@@ -39,7 +30,7 @@ def num_converter(num):
             return -1 * int(num)
         else:
             return int(num)
-            
+
 print("*" * 75)
 
 # Point-slope y = mx + b
@@ -94,11 +85,7 @@ while True:
     result = slope_intercept(m, b, lower_x, upper_x)
     print(result)
 
-
-
-
 print("*" * 75)
-
 
 # Write a function to solve the quadratic formula
 # https://en.wikipedia.org/wiki/Quadratic_formula
