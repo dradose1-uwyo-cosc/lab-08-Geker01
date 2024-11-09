@@ -14,6 +14,14 @@
 # Other wise return the converted int or float 
 # Floats should only have one decimal point in them 
 
+# Write a function to solve the quadratic formula
+# https://en.wikipedia.org/wiki/Quadratic_formula
+# Accept inputs for a, b, c
+# Remember that this returns two values
+# Create a loop like above to prompt the user for input for the three values
+# Create a second function that just does the square root operation 
+    # If the number you are trying to take the square root of is negative, return null
+
 def num_converter(num):
     isneg = False
     if "-" in num:
@@ -31,7 +39,7 @@ def num_converter(num):
             return -1 * int(num)
         else:
             return int(num)
-
+            
 print("*" * 75)
 
 # Point-slope y = mx + b
@@ -54,28 +62,38 @@ print("*" * 75)
 # Remember all inputs are strings, but the function needs ints or floats
 # Call your function and print the resulting list
 
-while True:
-    slope = input("please enter a value for the slope m or exit to quit")
-    if slope.lower()== "exit":
-        break
-    y_int = input("please enter a value for the y-intercept b or exit to quit")
-    if y_int.lower() == "exit":
-        break
-    lower_x = input("please enter a value for the lower x bound or exit to quit")
-    if lower_x.lower() == "exit":
-        break
-    upper_x = ("please enter a value for the upper x bound or exit to quit")
-    if upper_x.lower() == "exit":
-        break
-
 def slope_intercept(m, b, lower_x, upper_x):
     if lower_x > upper_x:
         return False
-    y_values = [m * x + b for x in range(lower_x, upper_x)]
+    
+    y_values = []
+    for x in range(lower_x, upper_x + 1):
+        y = m * x + b
+        y_values.append(y)
     return y_values
 
-user_input = input("please enter four parameters for slope, x, an upper bound, and a lower bound or exit to stop:")
-num_converter(user_input)
+while True:
+    m_i = input("please enter a value for slope (m) or exit to quit")
+    if m_i.lower() == "exit":
+        break
+    b_i = input("plese enter a value for the y-int (b) or exit to quit")
+    if b_i.lower() == "exit":
+        break
+    lower_x_i = input("please enter avalue for the lower x bound or exit to quit")
+    if lower_x_i.lower() == "exit":
+        break
+    upper_x_i = input("please enter a value for the upper x bound or exit to quit")
+    if upper_x_i.lower() == "exit":
+        break
+
+    m = num_converter(m_i)
+    b = num_converter(b_i)
+    lower_x = num_converter(lower_x_i)
+    upper_x = num_converter(upper_x_i)
+
+    result = slope_intercept(m, b, lower_x, upper_x)
+    print(result)
+
 
 
 
