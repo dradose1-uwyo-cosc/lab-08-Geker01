@@ -64,16 +64,16 @@ def slope_intercept(m, b, lower_x, upper_x):
     return y_values
 
 while True:
-    m_i = input("please enter a value for slope (m) or exit to quit")
+    m_i = input("please enter a value for slope (m) or exit to quit:")
     if m_i.lower() == "exit":
         break
-    b_i = input("plese enter a value for the y-int (b) or exit to quit")
+    b_i = input("plese enter a value for the y-int (b) or exit to quit:")
     if b_i.lower() == "exit":
         break
-    lower_x_i = input("please enter avalue for the lower x bound or exit to quit")
+    lower_x_i = input("please enter avalue for the lower x bound or exit to quit:")
     if lower_x_i.lower() == "exit":
         break
-    upper_x_i = input("please enter a value for the upper x bound or exit to quit")
+    upper_x_i = input("please enter a value for the upper x bound or exit to quit:")
     if upper_x_i.lower() == "exit":
         break
 
@@ -94,3 +94,40 @@ print("*" * 75)
 # Create a loop like above to prompt the user for input for the three values
 # Create a second function that just does the square root operation 
     # If the number you are trying to take the square root of is negative, return null
+
+def calc_sqrt(value):
+    if value < 0:
+        return None
+    return value ** 0.5
+
+def solve(a, b, c):
+    discriminant = b ** 2 - 4*a*c
+    sqrt_discriminant = calc_sqrt(discriminant)
+    if sqrt_discriminant is None:
+        return None, None
+    
+    x1 = (-b + sqrt_discriminant) / (2 * a)
+    x2 = (-b - sqrt_discriminant) / (2 * a)
+    return x1, x2
+
+while True:
+    a_i = input("please enter a value for a or exit to quit:")
+    if a_i.lower() == "exit":
+        break
+    b_i = input("please enter a value for b or exit to quit:")
+    if b_i.lower() == "exit":
+        break
+    c_i = input("please enter a value for c or exit to quit:")
+    if c_i.lower() == "exit":
+        break
+
+    a = num_converter(a_i)
+    b = num_converter(b_i)
+    c = num_converter(c_i)
+
+solutions = solve(a, b, c)
+if solutions == (None, None):
+    print("no real solutions")
+else:
+    x1, x2 = solutions
+    print(solutions)
